@@ -13,6 +13,7 @@
 #         i) Substitution
 #         ii) Safe Substitution
 
+
 # Why should you use 
 #  - `stt.format()
 #  - f-strings
@@ -58,6 +59,7 @@ print("-----------------------")
 
 # Example 4
 print("The value of {} is approximately {:f}".format("pi", 3.14159))
+
 print("-----------------------")
 
 # Example 4.1
