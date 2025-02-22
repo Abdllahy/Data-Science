@@ -97,3 +97,31 @@ except Exception as e:
     print(e)  # Output: I can't fly!
 
 # LSP not met
+
+class Bird:
+    def make_sound(self):
+        return "Some sound"
+
+class FlyingBird(Bird):
+    def fly(self):
+        return "I can fly!"
+
+class Sparrow(FlyingBird):
+    def chirp(self):
+        return "Chirp chirp!"
+
+class Ostrich(Bird):
+    def run(self):
+        return "I can run fast!"
+
+def make_bird_fly(bird: FlyingBird):
+    return bird.fly()
+
+# Using Sparrow, which can fly
+sparrow = Sparrow()
+print(make_bird_fly(sparrow))  # Output: I can fly!
+
+# Ostrich cannot be passed to make_bird_fly since it doesn't inherit from FlyingBird
+ostrich = Ostrich()
+# This would now raise a TypeError if we attempted to pass ostrich to make_bird_fly
+
