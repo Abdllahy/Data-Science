@@ -68,3 +68,32 @@ class Person:
 person = Person(23, 'Adam')
 print(hash(person))
 
+
+# LSP met
+class Bird:
+    def fly(self):
+        return "I can fly!"
+
+class Sparrow(Bird):
+    def chirp(self):
+        return "Chirp chirp!"
+
+class Ostrich(Bird):
+    def fly(self):
+        raise Exception("I can't fly!")
+
+def make_bird_fly(bird: Bird):
+    return bird.fly()
+
+# Using Sparrow, which can fly
+sparrow = Sparrow()
+print(make_bird_fly(sparrow))  # Output: I can fly!
+
+# Using Ostrich, which cannot fly
+ostrich = Ostrich()
+try:
+    print(make_bird_fly(ostrich))  # Raises an exception
+except Exception as e:
+    print(e)  # Output: I can't fly!
+
+# LSP not met
